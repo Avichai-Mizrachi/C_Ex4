@@ -1,6 +1,8 @@
 #ifndef edgesh
 #define edgesh
 
+typedef struct node_ node, *pnode;
+
 // Edge
 typedef struct edge_
 {
@@ -8,8 +10,6 @@ typedef struct edge_
     pnode endpoint;
     struct edge_ *next;
 } edge, *pedge;
-
-typedef struct node_ node, *pnode;
 
 
 void addEdge(int , int , int , pnode *);

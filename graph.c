@@ -16,25 +16,28 @@ void adapter_cmd(char answer, pnode *graph)
     case 'A':
         build_graph_cmd(graph);
         break;
-    
+
     case 'B':
         insert_node_cmd(graph);
         break;
-    
+
     case 'D':
         delete_node_cmd(graph);
         break;
-    
+
     case 'S':
-        shortsPath_cmd(graph);
+        shortsPath_cmd(*graph);
         break;
-    
+
     case 'T':
-        TSP_cmd(graph);
+        TSP_cmd(*graph);
         break;
-    
-    case EOF:
-        return;
+
+    default:
+        if (answer == EOF)
+        {
+            return;
+        }
     }
     // if (c == 'A')
     // {
@@ -68,7 +71,7 @@ void adapter_cmd(char answer, pnode *graph)
 
 void build_graph_cmd(pnode *head)
 {
-    //delete_graph_cmd(head);
+    // delete_graph_cmd(head);
     int count = 0;
     scanf("%d", &count);
     for (int i = 0; i < count; i++)
