@@ -9,36 +9,61 @@
 
 #define IN 999999
 
-void adapter_cmd(char c, pnode *graph)
+void adapter_cmd(char answer, pnode *graph)
 {
-    if (c == 'A')
+    switch (answer)
     {
+    case 'A':
         build_graph_cmd(graph);
-    }
-
-    else if (c == 'B')
-    {
+        break;
+    
+    case 'B':
         insert_node_cmd(graph);
-    }
-
-    else if (c == 'D')
-    {
+        break;
+    
+    case 'D':
         delete_node_cmd(graph);
-    }
-
-    else if (c == 'S')
-    {
-        shortsPath_cmd(*graph);
-    }
-
-    else if (c == 'T')
-    {
-        TSP_cmd(*graph);
-    }
-    else if (c == EOF)
-    {
+        break;
+    
+    case 'S':
+        shortsPath_cmd(graph);
+        break;
+    
+    case 'T':
+        TSP_cmd(graph);
+        break;
+    
+    case EOF:
         return;
     }
+    // if (c == 'A')
+    // {
+    //     build_graph_cmd(graph);
+    // }
+
+    // else if (c == 'B')
+    // {
+    //     insert_node_cmd(graph);
+    // }
+
+    // else if (c == 'D')
+    // {
+    //     delete_node_cmd(graph);
+    // }
+
+    // else if (c == 'S')
+    // {
+    //     shortsPath_cmd(*graph);
+    // }
+
+    // else if (c == 'T')
+    // {
+    //     TSP_cmd(*graph);
+    // }
+    // else if (c == EOF)
+    // {
+    //     return;
+    // }
 }
 
 void build_graph_cmd(pnode *head)

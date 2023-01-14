@@ -7,9 +7,9 @@
 int main()
 {
     pnode graph = NULL;
-    char in;
-    while (scanf(" %c", &in) != EOF){
-        adapter_cmd(in, &graph);
+    char answer;
+    while (scanf(" %c", &answer) != EOF){
+        adapter_cmd(answer, &graph);
     }
     delete_graph_cmd(&graph);
     return 0;
