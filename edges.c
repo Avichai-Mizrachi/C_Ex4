@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "nodes.h"
 #include "edges.h"
 #include "graph.h"

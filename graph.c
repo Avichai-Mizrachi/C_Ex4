@@ -6,7 +6,7 @@
 #include "nodes.h"
 #include "edges.h"
 
-#define IN 999999
+#define MAX 1000000
 
 void build_graph(pnode *head);
 void insert_node(pnode *head);
@@ -16,7 +16,7 @@ void shortsPath(pnode head);
 int shortsPathFun(pnode head, int, int);
 int min(int, int);
 void TheShortestPath(pnode head);
-void permutation(pnode, int *, int, int, int*, int*);
+void permutation(pnode, int *, int, int, int *, int *);
 int calcArray(pnode, int[], int);
 void swap(int *, int *);
 int factorial(int);
@@ -192,7 +192,7 @@ int shortsPathFun(pnode head, int source, int target)
     {
         for (int i = 0; i < N; i++)
         {
-            mat[k][i] = IN;
+            mat[k][i] = MAX;
         }
     }
 
@@ -234,7 +234,7 @@ int shortsPathFun(pnode head, int source, int target)
             }
         }
     }
-    if (mat[source][target] == IN)
+    if (mat[source][target] == MAX)
     {
         return -1;
     }
@@ -266,7 +266,7 @@ void TheShortestPath(pnode head)
     int temp = 0;
     permutation(head, cities, 0, count - 1, perm, &temp);
     int ind = find_minimum(perm, fac);
-    if (perm[ind] == IN)
+    if (perm[ind] == MAX)
     {
         printf("TSP shortest path: %d \n", -1);
     }
@@ -284,7 +284,7 @@ int calcArray(pnode head, int cities[], int size)
         int path = shortsPathFun(head, cities[i], cities[i + 1]);
         if (path == -1)
         {
-            return IN;
+            return MAX;
         }
         distance += path;
     }
