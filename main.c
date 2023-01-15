@@ -6,8 +6,8 @@
 
 int main()
 {
-    pnode graph = NULL;
     char answer;
+    pnode graph = NULL;
     while (scanf(" %c", &answer) != EOF){
         choice(answer, &graph);
     }

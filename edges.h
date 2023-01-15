@@ -3,7 +3,7 @@
 
 typedef struct node_ node, *pnode;
 
-// Edge
+// Edge struct
 typedef struct edge_
 {
     int weight;

@@ -3,7 +3,7 @@
 
 typedef struct edge_ edge, *pedge;
 
-// Node
+// Node struct
 typedef struct node_
 {
     int id;
