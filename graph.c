@@ -1,7 +1,7 @@
-#include <string.h>
-#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 #include "graph.h"
 #include "nodes.h"
 #include "edges.h"
@@ -328,11 +328,9 @@ int find_minimum(int arr[], int n)
 
 int factorial(int num)
 {
-    if (num < 0)
-    {
-        return 0;
-    }
     if (num == 0)
         return 1;
+    if (num < 0)
+        return 0;
     return factorial(num - 1) * num;
 }
