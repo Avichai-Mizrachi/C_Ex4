@@ -28,11 +28,11 @@ void choice(char answer, pnode *graph)
         break;
 
     case 'S':
-        shortsPathFun(*graph);
+        shortsPath(*graph);
         break;
 
     case 'T':
-        TSP(*graph);
+        TheShortestPath(*graph);
         break;
 
     default:
@@ -150,37 +150,15 @@ void delete_node(pnode *head)
     choice(getchar(), head);
 }
 
-// void printGraph(pnode *head)
-// { // for self debug
-//     if (!head)
-//     {
-//         return;
-//     }
-//     pnode temp = *head;
-//     while (temp)
-//     {
-//         printf("Node{%d} -- Edges{", temp->id);
-//         pedge ed = temp->edges;
-//         while (ed != NULL)
-//         {
-//             printf("%d -> %d -- %d,  ", temp->id, ed->endpoint->id, ed->weight);
-//             ed = ed->next;
-//         }
-//         temp = temp->next;
-//         printf("}\n");
-//     }
-//     printf("\n");
-// }
-
-void shortsPathFun(pnode head)
+void shortsPath(pnode head)
 {
     int src = 0, dst = 0;
     scanf("%d", &src);
     scanf("%d", &dst);
-    printf("Dijsktra shortest path: %d \n", shortsPath(head, src, dst));
+    printf("Dijsktra shortest path: %d \n", shortsPathFun(head, src, dst));
 }
 
-int shortsPath(pnode head, int source, int target)
+int shortsPathFun(pnode head, int source, int target)
 {
     if (!head)
     {
@@ -259,7 +237,7 @@ int min(int a, int b)
                                    : b;
 }
 
-void TSP(pnode head)
+void TheShortestPath(pnode head)
 {
     int count;
     scanf("%d", &count);
@@ -292,7 +270,7 @@ int calcArray(pnode head, int cities[], int size)
     int distance = 0;
     for (size_t i = 0; i < size - 1; i++)
     {
-        int path = shortsPath(head, cities[i], cities[i + 1]);
+        int path = shortsPathFun(head, cities[i], cities[i + 1]);
         if (path == -1)
         {
             return IN;
@@ -320,27 +298,12 @@ void permutation(pnode head, int *cities, int start, int end, int *perm, int *in
     int i;
     for (i = start; i <= end; i++)
     {
-        // swapping numbers
         swap((cities + i), (cities + start));
-        // fixing one first digit and calling permutation on the rest of the digits
         permutation(head, cities, start + 1, end, perm, ind);
         swap((cities + i), (cities + start));
     }
 }
 
-// factorial
-int factorial(int num)
-{
-    if (num < 0)
-    {
-        return 0;
-    }
-    if (num == 0)
-        return 1;
-    return factorial(num - 1) * num;
-}
-
-// finding minimum in an array
 int find_minimum(int arr[], int n)
 {
     int index = 0;
@@ -350,4 +313,15 @@ int find_minimum(int arr[], int n)
             index = i;
         }
     return index;
+}
+
+int factorial(int num)
+{
+    if (num < 0)
+    {
+        return 0;
+    }
+    if (num == 0)
+        return 1;
+    return factorial(num - 1) * num;
 }

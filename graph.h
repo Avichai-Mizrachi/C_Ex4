@@ -11,11 +11,11 @@ void insert_node(pnode *head);
 void delete_node(pnode *head);
 void printGraph(pnode *head); //for self debug
 void delete_graph(pnode *head);
-void shortsPathFun(pnode head);
-int shortsPath(pnode head, int, int);
+void shortsPath(pnode head);
+int shortsPathFun(pnode head, int, int);
 int min(int, int);
 
-void TSP(pnode head);
+void TheShortestPath(pnode head);
 void permutation(pnode, int *, int, int, int*, int*);
 int calcArray(pnode, int[], int);
 void swap(int *, int *);
