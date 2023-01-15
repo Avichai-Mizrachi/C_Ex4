@@ -15,6 +15,6 @@ node *newNode(int);
 void insertLastN(int, pnode *);
 void deleteFromListN(int, node **);
 pnode getNode (pnode *, int);
-void deleteGraph_cmd(pnode *);
+void deleteGraph(pnode *);
 
 #endif

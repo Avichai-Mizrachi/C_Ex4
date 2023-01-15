@@ -5,6 +5,12 @@
 #include "edges.h"
 #include "graph.h"
 
+void addEdge(int , int , int , pnode *);
+void insertLastE(pnode, int , pnode *);
+void deleteFromListE(int, pedge *, pnode *);
+void freeEdges(pedge *);
+edge *newEdge(int , pnode);
+
 edge *newEdge(int weight, pnode dest)
 {
     edge *e = (edge *)malloc(sizeof(edge));

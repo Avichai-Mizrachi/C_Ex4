@@ -4,6 +4,12 @@
 #include "nodes.h"
 #include "graph.h"
 
+node *newNode(int);
+void insertLastN(int, pnode *);
+void deleteFromListN(int, node **);
+pnode getNode (pnode *, int);
+void deleteGraph(pnode *);
+
 node *newNode(int id)
 {
     pnode p = (pnode)malloc(sizeof(node));
@@ -15,6 +21,20 @@ node *newNode(int id)
     p->next = NULL;
     p->edges = NULL;
     return p;
+}
+
+pnode getNode(pnode *head, int id)
+{
+    pnode h = *head;
+    while (h)
+    {
+        if (h->id == id)
+        {
+            return h;
+        }
+        h = h->next;
+    }
+    return NULL;
 }
 
 void insertLastN(int id, pnode *head)
@@ -47,18 +67,4 @@ void deleteFromListN(int id, pnode *head)
         freeEdges(&(p->edges));
         free(p);
     }
-}
-
-pnode getNode(pnode *head, int id)
-{
-    pnode h = *head;
-    while (h)
-    {
-        if (h->id == id)
-        {
-            return h;
-        }
-        h = h->next;
-    }
-    return NULL;
 }
