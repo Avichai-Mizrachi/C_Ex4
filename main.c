@@ -11,6 +11,6 @@ int main()
     while (scanf(" %c", &answer) != EOF){
         choice(answer, &graph);
     }
-    delete_graph_cmd(&graph);
+    delete_graph(&graph);
     return 0;
 }

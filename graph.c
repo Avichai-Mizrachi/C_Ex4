@@ -1,11 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
 
+
+#include "graph.h"
 #include "nodes.h"
 #include "edges.h"
-#include "graph.h"
+
 
 #define IN 999999
 
@@ -14,23 +16,23 @@ void choice(char answer, pnode *graph)
     switch (answer)
     {
     case 'A':
-        build_graph_cmd(graph);
+        build_graph(graph);
         break;
 
     case 'B':
-        insert_node_cmd(graph);
+        insert_node(graph);
         break;
 
     case 'D':
-        delete_node_cmd(graph);
+        delete_node(graph);
         break;
 
     case 'S':
-        shortsPath_cmd(*graph);
+        shortsPathFun(*graph);
         break;
 
     case 'T':
-        TSP_cmd(*graph);
+        TSP(*graph);
         break;
 
     default:
@@ -41,9 +43,8 @@ void choice(char answer, pnode *graph)
     }
 }
 
-void build_graph_cmd(pnode *head)
+void build_graph(pnode *head)
 {
-    // delete_graph_cmd(head);
     int count = 0;
     scanf("%d", &count);
     for (int i = 0; i < count; i++)
@@ -72,12 +73,10 @@ void build_graph_cmd(pnode *head)
             break;
         }
     }
-    // printf("built graph\n");
-    // printGraph_cmd(head);
     choice(c, head);
 }
 
-void insert_node_cmd(pnode *head)
+void insert_node(pnode *head)
 {
     int ind;
     scanf("%d", &ind);
@@ -109,12 +108,10 @@ void insert_node_cmd(pnode *head)
             addEdge(ind, dest, weight, head);
         }
     }
-    // printf("added node\n");
-    // printGraph_cmd(head);
     choice(getchar(), head);
 }
 
-void delete_graph_cmd(pnode *head)
+void delete_graph(pnode *head)
 {
     if (!head)
     {
@@ -137,7 +134,7 @@ void delete_graph_cmd(pnode *head)
     free(temp);
 }
 
-void delete_node_cmd(pnode *head)
+void delete_node(pnode *head)
 {
     int ind;
     scanf("%d", &ind);
@@ -150,34 +147,32 @@ void delete_node_cmd(pnode *head)
         temp = temp->next;
     }
     deleteFromListN(ind, head);
-    // printf("deleted node\n");
-    // printGraph_cmd(head);
     choice(getchar(), head);
 }
 
-void printGraph_cmd(pnode *head)
-{ // for self debug
-    if (!head)
-    {
-        return;
-    }
-    pnode temp = *head;
-    while (temp)
-    {
-        printf("Node{%d} -- Edges{", temp->id);
-        pedge ed = temp->edges;
-        while (ed != NULL)
-        {
-            printf("%d -> %d -- %d,  ", temp->id, ed->endpoint->id, ed->weight);
-            ed = ed->next;
-        }
-        temp = temp->next;
-        printf("}\n");
-    }
-    printf("\n");
-}
+// void printGraph(pnode *head)
+// { // for self debug
+//     if (!head)
+//     {
+//         return;
+//     }
+//     pnode temp = *head;
+//     while (temp)
+//     {
+//         printf("Node{%d} -- Edges{", temp->id);
+//         pedge ed = temp->edges;
+//         while (ed != NULL)
+//         {
+//             printf("%d -> %d -- %d,  ", temp->id, ed->endpoint->id, ed->weight);
+//             ed = ed->next;
+//         }
+//         temp = temp->next;
+//         printf("}\n");
+//     }
+//     printf("\n");
+// }
 
-void shortsPath_cmd(pnode head)
+void shortsPathFun(pnode head)
 {
     int src = 0, dst = 0;
     scanf("%d", &src);
@@ -259,25 +254,12 @@ int shortsPath(pnode head, int source, int target)
 
 int min(int a, int b)
 {
-    if (a == 0)
-    {
-        return b;
-    }
-    if (b == 0)
-    {
-        return a;
-    }
-    if (a < b)
-    {
-        return a;
-    }
-    else
-    {
-        return b;
-    }
+    return (a == 0) ? b : (b == 0) ? a
+                      : (a < b)    ? a
+                                   : b;
 }
 
-void TSP_cmd(pnode head)
+void TSP(pnode head)
 {
     int count;
     scanf("%d", &count);

@@ -30,8 +30,6 @@ void insertLastN(int id, pnode *head)
 
 void deleteFromListN(int id, pnode *head)
 {
-    //printf("before node\n");
-    //printGraph_cmd(head);
     pnode h = *head;
     pnode p = NULL;
     if(h->id != id){
