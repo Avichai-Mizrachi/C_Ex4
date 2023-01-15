@@ -22,7 +22,7 @@ void swap(int *, int *);
 int factorial(int);
 int find_minimum(int[], int);
 
-void adapter_cmd(char, pnode *head);
+void choice(char, pnode *head);
 
 
 #endif

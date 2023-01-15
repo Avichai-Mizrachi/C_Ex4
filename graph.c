@@ -9,7 +9,7 @@
 
 #define IN 999999
 
-void adapter_cmd(char answer, pnode *graph)
+void choice(char answer, pnode *graph)
 {
     switch (answer)
     {
@@ -39,34 +39,6 @@ void adapter_cmd(char answer, pnode *graph)
             return;
         }
     }
-    // if (c == 'A')
-    // {
-    //     build_graph_cmd(graph);
-    // }
-
-    // else if (c == 'B')
-    // {
-    //     insert_node_cmd(graph);
-    // }
-
-    // else if (c == 'D')
-    // {
-    //     delete_node_cmd(graph);
-    // }
-
-    // else if (c == 'S')
-    // {
-    //     shortsPath_cmd(*graph);
-    // }
-
-    // else if (c == 'T')
-    // {
-    //     TSP_cmd(*graph);
-    // }
-    // else if (c == EOF)
-    // {
-    //     return;
-    // }
 }
 
 void build_graph_cmd(pnode *head)
@@ -102,7 +74,7 @@ void build_graph_cmd(pnode *head)
     }
     // printf("built graph\n");
     // printGraph_cmd(head);
-    adapter_cmd(c, head);
+    choice(c, head);
 }
 
 void insert_node_cmd(pnode *head)
@@ -139,7 +111,7 @@ void insert_node_cmd(pnode *head)
     }
     // printf("added node\n");
     // printGraph_cmd(head);
-    adapter_cmd(getchar(), head);
+    choice(getchar(), head);
 }
 
 void delete_graph_cmd(pnode *head)
@@ -180,7 +152,7 @@ void delete_node_cmd(pnode *head)
     deleteFromListN(ind, head);
     // printf("deleted node\n");
     // printGraph_cmd(head);
-    adapter_cmd(getchar(), head);
+    choice(getchar(), head);
 }
 
 void printGraph_cmd(pnode *head)
