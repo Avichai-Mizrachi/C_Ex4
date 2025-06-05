@@ -1,4 +1,4 @@
-# C_Ex4
+# C Graph Project – Node Management and Dijkstra Implementation
 
 This project implements a simple graph data structure in C, supporting operations such as adding and removing nodes and edges, as well as computing shortest paths between nodes.
 
